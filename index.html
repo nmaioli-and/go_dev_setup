@@ -1,0 +1,185 @@
+<html>
+	<head>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hakimel/reveal.js@3.9.2/css/reveal.min.css">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hakimel/reveal.js@3.9.2/css/theme/white.min.css">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hakimel/reveal.js@3.9.2/lib/css/monokai.min.css">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section data-markdown>
+					<textarea data-template>
+# Go Dev Setup
+
+Setting up a development environment for [Go](https://golang.org/)
+
+```go
+package main
+
+import "fmt"
+
+func main() {
+	fmt.Println("Hello, 世界")
+}
+```
+					</textarea>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+## `$ whoami`
+
+- Nico <span style="color:red;">AND</span> Doomguy
+- GitHub [nicolomaioli](https://github.com/nicolomaioli)
+- Mostly Serverless
+- Mostly Js/Ts
+					</textarea>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+## Agenda
+
+1. Installing Go
+1. `$GOPATH`
+1. Go Modules
+1. `.*shrc`
+1. Go tools
+1. Visual Studio Code
+1. Let's code!
+1. Resources
+1. Q&amp;A
+					</textarea>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+## [Installing Go](https://golang.org/doc/install)
+
+tl;dr: Packages are available on `brew`, `choco` and most Linux distros. Using `brew`,
+as simple as:
+
+```sh
+brew install go
+```
+					</textarea>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+## `$GOPATH`
+
+&gt; The `GOPATH` environment variable is used to specify directories outside
+&gt; of `$GOROOT` that contain the source for Go projects and their binaries.
+
+[Golang Wiki](https://github.com/golang/go/wiki/GOPATH). Defaults to
+`$HOME/go`.
+					</textarea>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+## Go Modules
+
+Introduced in [Go 1.11](https://golang.org/doc/go1.11) alongside a new
+dependency management system. They have been deemed ready for production use
+and recommended since [Go 1.14](https://golang.org/doc/go1.14).
+					</textarea>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+## `.*shrc`
+
+```sh
+# Go
+export GOPATH="$HOME/go"
+export GOBIN="$GOPATH/bin"
+export PATH="$GOBIN:$PATH"
+```
+					</textarea>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+## Go Tools ...
+
+Go comes with a lot of tools for formatting, linting, debugging, completion,
+renaming, documentation, testing, and more. It has a language server called
+`gopls`, which is currently in alpha.
+					</textarea>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+## ... More Go Tools
+
+There are alternative tools if you don't feel like using `gopls`: `gocode`
+(autocompletion daemon), `gofmt` (formatter), `goimports` (manage imports),
+`gorename` (rename symbols), and more.
+					</textarea>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+## Visual Studio Code
+
+Get the
+[plugin](https://marketplace.visualstudio.com/items?itemName=ms-vscode.Go), run
+`Go: Install/Update Tools`, then update your settings. Here is my config:
+
+```json
+{
+	// Go
+	"go.useLanguageServer": true,
+	"go.autocompleteUnimportedPackages": true,
+	"go.buildOnSave": "off",
+	"go.lintOnSave": "package",
+	"go.vetOnSave": "package",
+	"go.vetFlags": [
+			"-all",
+			"-shadow"
+	],
+}
+```
+					</textarea>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+## Let's code!
+					</textarea>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+## Resources
+
+- [A Tour Of Go](https://tour.golang.org/welcome/1)
+- [Effective Go](https://golang.org/doc/effective_go.html)
+- [Go Blog](https://blog.golang.org/)
+- [Get Help](https://golang.org/help/)
+- Interest check: `#tech-gophers`?
+					</textarea>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+## Q&amp;A
+					</textarea>
+				</section>
+
+			</div>
+		</div>
+		<script src="https://cdn.jsdelivr.net/gh/hakimel/reveal.js@3.9.2/js/reveal.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/gh/hakimel/reveal.js@3.9.2/plugin/markdown/marked.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/gh/hakimel/reveal.js@3.9.2/plugin/markdown/markdown.min.js"></script>
+		<script>
+			Reveal.initialize({
+				dependencies: [
+					{ src: 'https://cdn.jsdelivr.net/gh/hakimel/reveal.js@3.9.2/plugin/highlight/highlight.min.js', async: true },
+				]
+			});
+		</script>
+	</body>
+</html>
