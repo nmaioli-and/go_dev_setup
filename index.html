@@ -58,8 +58,10 @@ func main() {
 					<textarea data-template>
 ## [Installing Go](https://golang.org/doc/install)
 
-tl;dr: Packages are available on `brew`, `choco` and most Linux distros. Using `brew`,
-as simple as:
+tl;dr: Packages are available on `brew`, `choco`, `flatpak`, and most Linux
+distros (although some are more updated than others, i.e. Arch vs
+Debian-based). Nothing wrong with using the tarball if you're happy to update
+manually. Using `brew`, as simple as:
 
 ```sh
 brew install go
@@ -86,6 +88,11 @@ brew install go
 Introduced in [Go 1.11](https://golang.org/doc/go1.11) alongside a new
 dependency management system. They have been deemed ready for production use
 and recommended since [Go 1.14](https://golang.org/doc/go1.14).
+
+Note that `$GOPATH/src` still works, with or without modules, thanks to the
+[Go 1 Compatibility Promise](https://golang.org/doc/go1compat). However managing
+dependencies without modules
+[can be really hard](https://github.com/golang/dep).
 					</textarea>
 				</section>
 
@@ -107,8 +114,8 @@ export PATH="$GOBIN:$PATH"
 ## Go Tools ...
 
 Go comes with a lot of tools for formatting, linting, debugging, completion,
-renaming, documentation, testing, and more. It has a language server called
-`gopls`, which is currently in alpha.
+renaming, documentation, and more. It has a language server called `gopls`,
+which is currently in alpha.
 					</textarea>
 				</section>
 
@@ -136,6 +143,7 @@ Get the
 	"go.useLanguageServer": true,
 	"go.autocompleteUnimportedPackages": true,
 	"go.buildOnSave": "off",
+    "go.lintTool": "staticcheck",
 	"go.lintOnSave": "package",
 	"go.vetOnSave": "package",
 	"go.vetFlags": [
@@ -166,7 +174,7 @@ Get the
 
 And if you feel particularly charitable,
 [give me some feedback](https://docs.google.com/forms/d/e/1FAIpQLSebPxLrRhdfJLl-8wI8QUF1TmLwFbrSOCAb0bYRjk95q7u_Lw/viewform?usp=sf_link)
-(I'm in Ada/Canyon)
+(I'm in squad Canyon).
 					</textarea>
 				</section>
 
